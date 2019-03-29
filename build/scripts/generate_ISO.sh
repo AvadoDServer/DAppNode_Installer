@@ -6,6 +6,7 @@ rm -f /images/*.tar.xz
 rm -f /images/*.yml
 rm -f /images/*.env
 rm -f /images/*.json
+rm -f /images/*.iso
 
 if [ "$BUILD" = true ]; then
     /usr/src/app/generate_docker_images.sh
