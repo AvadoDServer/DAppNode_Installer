@@ -13,6 +13,9 @@ else
     /usr/src/app/download_core.sh
 fi
 
+# build the AVADO specific images
+/usr/src/app/generate_avado_images.sh
+
 #file generated to detectd ISO installation
 touch dappnode/iso_install.log
 
