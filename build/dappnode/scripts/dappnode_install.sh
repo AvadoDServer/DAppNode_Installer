@@ -221,11 +221,15 @@ addSwap
 echo -e "\e[32mCustomizing login...\e[0m" 2>&1 | tee -a $LOG_DIR
 customMotd
 
-echo -e "\e[32mBuilding DAppNode Core if needed...\e[0m" 2>&1 | tee -a $LOG_DIR
-dappnode_core_build
+#echo -e "\e[32mBuilding DAppNode Core if needed...\e[0m" 2>&1 | tee -a $LOG_DIR
+#dappnode_core_build
 
-echo -e "\e[32mDownloading DAppNode Core...\e[0m" 2>&1 | tee -a $LOG_DIR
-dappnode_core_download
+#echo -e "\e[32mDownloading DAppNode Core...\e[0m" 2>&1 | tee -a $LOG_DIR
+#dappnode_core_download
+
+echo -e "\e[32mImages available\e[0m" 2>&1 | tee -a $LOG_DIR
+ls -l ${DAPPNODE_CORE_DIR}
+
 
 echo -e "\e[32mLoading DAppNode Core...\e[0m" 2>&1 | tee -a $LOG_DIR
 dappnode_core_load

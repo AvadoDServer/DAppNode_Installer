@@ -6,7 +6,7 @@ DAPPNODE_CORE_DIR="/images/"
 
 WGET="wget"
 
-components=(BIND IPFS VPN WAMP ADMIN WIFI)
+components=(BIND IPFS VPN WAMP WIFI)
 
 # The indirect variable expansion used in ${!ver##*:} allows us to use versions like 'dev:development'
 # If such variable with 'dev:'' suffix is used, then the component is built from specified branch or commit.
@@ -44,11 +44,3 @@ dappnode_core_download()
 echo -e "\e[32mDownloading DAppNode Core...\e[0m"
 dappnode_core_download
 
-mkdir -p dappnode/DNCORE
-
-echo -e "\e[32mCopying files...\e[0m"
-cp /images/*.tar.xz dappnode/DNCORE
-cp /images/*.yml dappnode/DNCORE
-cp /images/*.json dappnode/DNCORE
-cp /images/*.env dappnode/DNCORE
-cp ./.dappnode_profile dappnode/DNCORE

@@ -25,6 +25,9 @@ echo "Creating necessary directories and copying files..."
 mkdir dappnode
 cp -r ../dappnode/* dappnode/
 
+echo "Files ready to add to ISO:"
+ls -lR dappnode/
+
 echo "Downloading third-party packages..."
 sed '1,/^\#\!ISOBUILD/!d' ../dappnode/scripts/dappnode_install_pre.sh > /tmp/vars.sh
 source /tmp/vars.sh
