@@ -24,6 +24,7 @@ cd dappnode-iso
 echo "Creating necessary directories and copying files..."
 mkdir dappnode
 cp -r ../dappnode/* dappnode/
+chmod -R -x dappnode/scripts/*.sh
 
 echo "Files ready to add to ISO:"
 ls -lR dappnode/

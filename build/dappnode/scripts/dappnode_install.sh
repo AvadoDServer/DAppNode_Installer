@@ -61,7 +61,8 @@ fi
 
 source "${PROFILE_FILE}"
 
-components=(BIND IPFS VPN WAMP DAPPMANAGER ADMIN WIFI)
+#components=(BIND IPFS VPN WAMP DAPPMANAGER ADMIN WIFI)
+components=(BIND IPFS ETHCHAIN ETHFORWARD VPN WAMP DAPPMANAGER ADMIN WIFI)
 
 # The indirect variable expansion used in ${!ver##*:} allows us to use versions like 'dev:development'
 # If such variable with 'dev:'' suffix is used, then the component is built from specified branch or commit.
@@ -130,11 +131,12 @@ customMotd()
 {
     if [ -f ${MOTD_FILE} ]; then
     cat <<EOF > ${MOTD_FILE}
- ___   _             _  _         _
-|   \ /_\  _ __ _ __| \| |___  __| |___
-| |) / _ \| '_ \ '_ \ .  / _ \/ _  / -_)
-|___/_/ \_\ .__/ .__/_|\_\___/\__,_\___|
-          |_|  |_|
+ .d8b.  db    db  .d8b.  d8888b.  .d88b.  
+d8' `8b 88    88 d8' `8b 88  `8D .8P  Y8. 
+88ooo88 Y8    8P 88ooo88 88   88 88    88 
+88~~~88 `8b  d8' 88~~~88 88   88 88    88 
+88   88  `8bd8'  88   88 88  .8D `8b  d8' 
+YP   YP    YP    YP   YP Y8888D'  `Y88P'  
 EOF
     fi
 }
@@ -169,7 +171,7 @@ expandDisk(){
 dappnode_start()
 {
     echo -e "\e[32mDAppNode starting...\e[0m" 2>&1 | tee -a $LOG_DIR
-    docker-compose -f $BIND_YML_FILE -f $IPFS_YML_FILE -f $VPN_YML_FILE -f $WAMP_YML_FILE -f $DAPPMANAGER_YML_FILE -f $ADMIN_YML_FILE -f $WIFI_YML_FILE up -d 2>&1 | tee -a $LOG_DIR
+    docker-compose -f $BIND_YML_FILE -f $IPFS_YML_FILE -f $ETHCHAIN_YML_FILE -f $ETHFORWARD_YML_FILE -f $VPN_YML_FILE -f $WAMP_YML_FILE -f $DAPPMANAGER_YML_FILE -f $ADMIN_YML_FILE -f $WIFI_YML_FILE up -d 2>&1 | tee -a $LOG_DIR
     echo -e "\e[32mDAppNode started\e[0m" 2>&1 | tee -a $LOG_DIR
 
     # Show credentials to the user on login
