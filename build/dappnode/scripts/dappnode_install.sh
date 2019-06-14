@@ -61,6 +61,7 @@ fi
 
 source "${PROFILE_FILE}"
 
+#components=(BIND IPFS VPN WAMP DAPPMANAGER ADMIN WIFI)
 components=(BIND IPFS VPN WAMP DAPPMANAGER ADMIN WIFI)
 
 # The indirect variable expansion used in ${!ver##*:} allows us to use versions like 'dev:development'
@@ -130,11 +131,12 @@ customMotd()
 {
     if [ -f ${MOTD_FILE} ]; then
     cat <<EOF > ${MOTD_FILE}
- ___   _             _  _         _
-|   \ /_\  _ __ _ __| \| |___  __| |___
-| |) / _ \| '_ \ '_ \ .  / _ \/ _  / -_)
-|___/_/ \_\ .__/ .__/_|\_\___/\__,_\___|
-          |_|  |_|
+ .d8b.  db    db  .d8b.  d8888b.  .d88b.  
+d8' `8b 88    88 d8' `8b 88  `8D .8P  Y8. 
+88ooo88 Y8    8P 88ooo88 88   88 88    88 
+88~~~88 `8b  d8' 88~~~88 88   88 88    88 
+88   88  `8bd8'  88   88 88  .8D `8b  d8' 
+YP   YP    YP    YP   YP Y8888D'  `Y88P'  
 EOF
     fi
 }
