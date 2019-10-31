@@ -1,16 +1,16 @@
 #!/bin/bash
 
-export ADMIN_VERSION="${ADMIN_VERSION:-0.2.0}"
-export DAPPMANAGER_VERSION="${DAPPMANAGER_VERSION:-0.2.1}"
+# export ADMIN_VERSION="${ADMIN_VERSION:-10.0.5}"
+# export DAPPMANAGER_VERSION="${DAPPMANAGER_VERSION:-10.0.1}"
 
-export DAPPNODE_DIR="/usr/src/dappnode/"
-export DAPPNODE_CORE_DIR="${DAPPNODE_DIR}DNCORE/"
+# export DAPPNODE_DIR="/usr/src/dappnode/"
+# export DAPPNODE_CORE_DIR="${DAPPNODE_DIR}DNCORE/"
 
-export ADMIN_YML_FILE="${DAPPNODE_CORE_DIR}docker-compose-admin.yml"
-export DAPPMANAGER_YML_FILE="${DAPPNODE_CORE_DIR}docker-compose-dappmanager.yml"
+# export ADMIN_YML_FILE="${DAPPNODE_CORE_DIR}docker-compose-admin.yml"
+# export DAPPMANAGER_YML_FILE="${DAPPNODE_CORE_DIR}docker-compose-dappmanager.yml"
 
-export WIFI_VERSION="${WIFI_VERSION:-0.2.0}"
-export WIFI_YML_FILE="${DAPPNODE_CORE_DIR}docker-compose-wifi.yml"
+# export WIFI_VERSION="${WIFI_VERSION:-0.3.2}"
+# export WIFI_YML_FILE="${DAPPNODE_CORE_DIR}docker-compose-wifi.yml"
 
 
 #alias dappnode_status='docker-compose -f $BIND_YML_FILE -f $IPFS_YML_FILE -f $ETHCHAIN_YML_FILE -f $ETHFORWARD_YML_FILE -f $VPN_YML_FILE -f $WAMP_YML_FILE -f $DAPPMANAGER_YML_FILE -f $ADMIN_YML_FILE -f $WIFI_YML_FILE ps'

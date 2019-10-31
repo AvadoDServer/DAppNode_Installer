@@ -1,6 +1,10 @@
 #!/bin/sh
+rm -f /var/run/docker.pid
 dockerd &
 sleep 5;
+
+
+netstat -ln
 
 rm -f /images/*.tar.xz
 rm -f /images/*.yml
@@ -26,6 +30,9 @@ cp /images/*.yml dappnode/DNCORE
 cp /images/*.json dappnode/DNCORE
 cp /images/*.env dappnode/DNCORE
 cp ./.dappnode_profile dappnode/DNCORE
+
+echo -e "\e[32m.dappnode_profile\e[0m"
+cat dappnode/DNCORE/.dappnode_profile
 
 
 echo -e "\e[32mTarget files for iso\e[0m"
