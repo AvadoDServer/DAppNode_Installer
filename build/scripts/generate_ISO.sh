@@ -15,14 +15,16 @@ rm -f /images/*.iso
 # build the AVADO specific images
 /usr/src/app/generate_avado_images.sh
 
-
-if [ "$BUILD" = true ]; then
-    /usr/src/app/generate_docker_images.sh
-else
-    /usr/src/app/download_core.sh
-fi
+# if [ "$BUILD" = true ]; then
+#     /usr/src/app/generate_docker_images.sh
+# else
+#     /usr/src/app/download_core.sh
+# fi
 
 mkdir -p dappnode/DNCORE
+
+    /usr/src/app/download_core.sh
+
 
 echo -e "\e[32mCopying files...\e[0m"
 cp /images/*.tar.xz dappnode/DNCORE

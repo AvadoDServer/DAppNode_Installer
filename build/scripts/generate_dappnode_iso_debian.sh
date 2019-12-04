@@ -1,9 +1,11 @@
 #!/bin/sh
 
-echo "Downloading debian ISO image: firmware-buster-DI-rc1-amd64-netinst.iso..."
-if [ ! -f /images/firmware-buster-DI-rc1-amd64-netinst.iso ]; then
-    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/buster_di_rc1+nonfree/amd64/iso-cd/firmware-buster-DI-rc1-amd64-netinst.iso \
-    -O /images/firmware-buster-DI-rc1-amd64-netinst.iso
+echo "Downloading debian ISO image: debian-10.2.0-arm64-netinst.iso..."
+    #wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/buster_di_rc1+nonfree/amd64/iso-cd/debian-10.2.0-arm64-netinst.iso \
+
+if [ ! -f /images/debian-10.2.0-arm64-netinst.iso ]; then
+    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.2.0+nonfree/amd64/iso-cd/firmware-10.2.0-amd64-netinst.iso \
+    -O /images/debian-10.2.0-arm64-netinst.iso
 fi
 echo "Done!"
 
@@ -12,11 +14,11 @@ rm -rf dappnode-iso
 rm DappNode-debian-*
 
 echo "Extracting the iso..."
-xorriso -osirrox on -indev /images/firmware-buster-DI-rc1-amd64-netinst.iso \
+xorriso -osirrox on -indev /images/debian-10.2.0-arm64-netinst.iso \
 -extract / dappnode-iso
 
 echo "Obtaining the isohdpfx.bin for hybrid ISO..."
-dd if=/images/firmware-buster-DI-rc1-amd64-netinst.iso bs=432 count=1 \
+dd if=/images/debian-10.2.0-arm64-netinst.iso bs=432 count=1 \
 of=dappnode-iso/isolinux/isohdpfx.bin
 
 cd dappnode-iso

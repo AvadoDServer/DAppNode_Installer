@@ -131,12 +131,7 @@ customMotd()
 {
     if [ -f ${MOTD_FILE} ]; then
     cat <<EOF > ${MOTD_FILE}
- .d8b.  db    db  .d8b.  d8888b.  .d88b.  
-d8' `8b 88    88 d8' `8b 88  `8D .8P  Y8. 
-88ooo88 Y8    8P 88ooo88 88   88 88    88 
-88~~~88 `8b  d8' 88~~~88 88   88 88    88 
-88   88  `8bd8'  88   88 88  .8D `8b  d8' 
-YP   YP    YP    YP   YP Y8888D'  `Y88P'  
+AVADO
 EOF
     fi
 }
