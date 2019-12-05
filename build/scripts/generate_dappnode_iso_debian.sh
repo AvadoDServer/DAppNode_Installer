@@ -11,7 +11,7 @@ echo "Done!"
 
 echo "Clean old files..."
 rm -rf dappnode-iso
-rm DappNode-debian-*
+rm AVADO-debian-*
 
 echo "Extracting the iso..."
 xorriso -osirrox on -indev /images/debian-10.2.0-arm64-netinst.iso \
@@ -77,4 +77,4 @@ echo "Generating new iso..."
 xorriso -as mkisofs -isohybrid-mbr isolinux/isohdpfx.bin \
 -c isolinux/boot.cat -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 \
 -boot-info-table -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot \
--isohybrid-gpt-basdat -o /images/DAppNode-debian-buster-amd64.iso .
+-isohybrid-gpt-basdat -o /images/AVADO-debian-buster-amd64.iso .
