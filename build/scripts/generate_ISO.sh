@@ -6,25 +6,23 @@ sleep 5;
 
 netstat -ln
 
-rm -f /images/*.tar.xz
-rm -f /images/*.yml
-rm -f /images/*.env
-rm -f /images/*.json
+# rm -f /images/*.tar.xz
+# rm -f /images/*.yml
+# rm -f /images/*.env
+# rm -f /images/*.json
 rm -f /images/*.iso
 
-# build the AVADO specific images
-/usr/src/app/generate_avado_images.sh
 
-# if [ "$BUILD" = true ]; then
-#     /usr/src/app/generate_docker_images.sh
-# else
-#     /usr/src/app/download_core.sh
-# fi
+#if [ "$BUILD" = true ]; then
+    # build the AVADO specific images
+    /usr/src/app/generate_avado_images.sh
+#fi
 
 mkdir -p dappnode/DNCORE
 
+#if [ "$DOWNLOAD" = true ]; then
     /usr/src/app/download_core.sh
-
+#fi
 
 echo -e "\e[32mCopying files...\e[0m"
 cp /images/*.tar.xz dappnode/DNCORE
