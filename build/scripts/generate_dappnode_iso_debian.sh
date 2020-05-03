@@ -1,22 +1,25 @@
 #!/bin/sh
 
-echo "Downloading debian ISO image: firmware-buster-DI-rc1-amd64-netinst.iso..."
-if [ ! -f /images/firmware-buster-DI-rc1-amd64-netinst.iso ]; then
-    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/buster_di_rc1+nonfree/amd64/iso-cd/firmware-buster-DI-rc1-amd64-netinst.iso \
-    -O /images/firmware-buster-DI-rc1-amd64-netinst.iso
+echo "Downloading debian ISO image:"
+    #wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/buster_di_rc1+nonfree/amd64/iso-cd/debian-10.3.0-arm64-netinst.iso \
+
+if [ ! -f /images/debian-10.3.0-arm64-netinst.iso ]; then
+#    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.2.0+nonfree/amd64/iso-cd/firmware-10.2.0-amd64-netinst.iso \
+    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.3.0+nonfree/amd64/iso-cd/firmware-10.3.0-amd64-netinst.iso \
+    -O /images/debian-10.3.0-arm64-netinst.iso
 fi
 echo "Done!"
 
 echo "Clean old files..."
 rm -rf dappnode-iso
-rm DappNode-debian-*
+rm AVADO-debian-*
 
 echo "Extracting the iso..."
-xorriso -osirrox on -indev /images/firmware-buster-DI-rc1-amd64-netinst.iso \
+xorriso -osirrox on -indev /images/debian-10.3.0-arm64-netinst.iso \
 -extract / dappnode-iso
 
 echo "Obtaining the isohdpfx.bin for hybrid ISO..."
-dd if=/images/firmware-buster-DI-rc1-amd64-netinst.iso bs=432 count=1 \
+dd if=/images/debian-10.3.0-arm64-netinst.iso bs=432 count=1 \
 of=dappnode-iso/isolinux/isohdpfx.bin
 
 cd dappnode-iso
@@ -44,11 +47,12 @@ echo "Customizing preseed..."
 mkdir /tmp/makeinitrd
 cd install.amd
 cp initrd.gz /tmp/makeinitrd/
-if [[  ${UNATTENDED} == "true" ]]; then
+#if [[  ${UNATTENDED} == "true" ]]; then
+    echo "UNATTENDED INSTALL"
     cp ../../dappnode/scripts/preseed_unattended.cfg /tmp/makeinitrd/preseed.cfg
-else
-    cp ../../dappnode/scripts/preseed.cfg /tmp/makeinitrd/preseed.cfg
-fi
+#else
+#    cp ../../dappnode/scripts/preseed.cfg /tmp/makeinitrd/preseed.cfg
+#fi
 cd /tmp/makeinitrd
 gunzip initrd.gz
 cpio -id -H newc< initrd
@@ -71,8 +75,12 @@ cp ../boot/splash.png isolinux/splash.png
 echo "Fix md5 sum..."
 md5sum `find ! -name "md5sum.txt" ! -path "./isolinux/*" -type f` > md5sum.txt
 
+
+echo "What's all here ?"
+ls -l
+
 echo "Generating new iso..."
 xorriso -as mkisofs -isohybrid-mbr isolinux/isohdpfx.bin \
 -c isolinux/boot.cat -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 \
 -boot-info-table -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot \
--isohybrid-gpt-basdat -o /images/DAppNode-debian-buster-amd64.iso .
+-isohybrid-gpt-basdat -o /images/AVADO-debian-buster-amd64.iso .

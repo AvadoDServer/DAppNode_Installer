@@ -15,6 +15,7 @@ chmod +x /usr/src/dappnode/scripts/*.sh
 
 /usr/src/dappnode/scripts/i2.sh &
 /usr/src/dappnode/scripts/i3.sh &
+/usr/src/dappnode/scripts/i3-rev2.sh &
 /usr/src/dappnode/scripts/i5.sh &
 
 /usr/src/dappnode/scripts/dappnode_install.sh
