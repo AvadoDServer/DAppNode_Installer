@@ -10,3 +10,7 @@ services:
       - UNATTENDED=false
     volumes:
       - ./images:/images
+    deploy:
+      resources:
+        limits:
+          memory: 4000M

@@ -3,7 +3,7 @@ FROM docker:dind
 ENV DOCKER_COMPOSE_VERSION 1.20.1
 
 RUN apk update && \
-    apk add xorriso git xz curl iptables cpio bash && \
+    apk add xorriso git xz curl iptables cpio figlet bash && \
     rm -rf /var/cache/apk/*
 
 RUN apk add -U --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing aufs-util
