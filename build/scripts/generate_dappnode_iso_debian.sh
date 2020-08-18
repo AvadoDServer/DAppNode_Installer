@@ -5,7 +5,7 @@ echo "Downloading debian ISO image:"
 
 if [ ! -f /images/debian-10.3.0-arm64-netinst.iso ]; then
 #    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.2.0+nonfree/amd64/iso-cd/firmware-10.2.0-amd64-netinst.iso \
-    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.3.0+nonfree/amd64/iso-cd/firmware-10.3.0-amd64-netinst.iso \
+    wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/archive/10.3.0+nonfree/amd64/iso-cd/firmware-10.3.0-amd64-netinst.iso \
     -O /images/debian-10.3.0-arm64-netinst.iso
 fi
 echo "Done!"
